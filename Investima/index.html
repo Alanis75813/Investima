@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Investima - Mistério da Sala 404</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="icon" href="midia/favicon.ico">
+</head>
+
+<body>
+
+    <!-- =========================
+         TELA INICIAL / HOME
+    ========================== -->
+
+    <main class="tela tela-inicial" id="telaInicial">
+
+        <img
+            src="midia/lupa.webp"
+            alt="Lupa"
+            class="lupa"
+        >
+
+        <h1>INVESTIMA</h1>
+
+        <h2>MISTÉRIO DA SALA 404</h2>
+
+        <p>
+            Um objeto acaba desaparecendo logo após
+            uma reunião importante!
+        </p>
+
+        <p>
+            3 suspeitos e um só culpado!
+        </p>
+
+        <button id="btnJogar" class="btn-principal">
+            🔎 JOGAR
+        </button>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DOS SUSPEITOS
+    ========================== -->
+
+    <main class="tela tela-suspeitos" id="telaSuspeitos">
+
+        <h1>ESSES SÃO OS SUSPEITOS!</h1>
+
+        <p class="subtitulo">
+            Observe os suspeitos e investigue os locais
+            em busca de pistas.
+        </p>
+
+
+        <div class="suspeitos">
+
+            <!-- ANNA -->
+
+            <div class="personagem">
+
+                <img
+                    src="midia/Anna.webp"
+                    alt="Anna"
+                >
+
+                <h2>Anna</h2>
+
+                <p>T.I</p>
+
+            </div>
+
+
+            <!-- DIEGO -->
+
+            <div class="personagem">
+
+                <img
+                    src="midia/Diego Chan.webp"
+                    alt="Diego"
+                >
+
+                <h2>Diego</h2>
+
+                <p>Analista</p>
+
+            </div>
+
+
+            <!-- LÚCIA -->
+
+            <div class="personagem">
+
+                <img
+                    src="midia/Lucia.webp"
+                    alt="Lúcia"
+                >
+
+                <h2>Lúcia</h2>
+
+                <p>Sênior</p>
+
+            </div>
+
+        </div>
+
+
+        <h2>Escolha um local para investigar:</h2>
+
+
+        <div class="locais">
+
+            <button class="btnLocais" data-local="sala">
+                🏢 Sala de reunião
+            </button>
+
+            <button class="btnLocais" data-local="laboratorio">
+                💻 Laboratório
+            </button>
+
+            <button class="btnLocais" data-local="arquivos">
+                📁 Arquivos
+            </button>
+
+            <button class="btnLocais" data-local="tecnica">
+                ⚙️ Sala técnica
+            </button>
+
+            <button class="btnLocais" data-local="corredor">
+                🚪 Corredor
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DE INVESTIGAÇÃO
+    ========================== -->
+
+    <main class="tela tela-investigacao" id="telaInvestigacao">
+
+        <h1 id="nomeLocal">
+            LOCAL
+        </h1>
+
+        <p id="textoLocal">
+            Você está investigando este local.
+        </p>
+
+        <!--COLETAR PISTAS-->
+
+        <div class="contador-pistas">
+
+            <span>🔎 Pistas Encontradas:</span>
+
+            <strong id="contadorPistas">
+                0/5
+            </strong>
+        </div>
+
+        <!-- EVIDÊNCIA -->
+
+        <div class="evidencia" id="evidencia">
+
+            <span class="icone-evidencia">
+                🔍
+            </span>
+
+            <h2 id="nomeEvidencia">
+                Evidência
+            </h2>
+
+            <p id="descricaoEvidencia">
+                Nenhuma evidência encontrada.
+            </p>
+        </div>
+
+        <!--BOTÃO DE COLETAR-->
+
+        <button id="btnColetarPistas" class="btn-principal">
+            🔎 Investigar pista
+        </button>
+
+        <p id="mensagemPista" class="mensagem-pista"></p>
+
+        <div class="botoes-investigacao">
+
+            <button id="btnVoltar" class="btn-secundario">
+                ← Voltar aos locais
+            </button>
+
+            <button id="btnDepoimentos" class="btn-principal">
+                💬 Ver depoimentos
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DE DEPOIMENTOS
+    ========================== -->
+
+    <main class="tela tela-depoimentos" id="telaDepoimentos">
+
+        <h1>DEPOIMENTOS</h1>
+
+        <p class="subtitulo">
+            Leia atentamente o que cada suspeito declarou.
+        </p>
+
+
+        <div class="depoimentos">
+
+            <!-- ANNA -->
+
+            <div class="depoimento">
+
+                <img
+                    src="midia/Anna.webp"
+                    alt="Anna"
+                >
+
+                <h2>Anna</h2>
+
+                <p id="depoimentoAnna"></p>
+
+            </div>
+
+
+            <!-- DIEGO -->
+
+            <div class="depoimento">
+
+                <img
+                    src="midia/Diego Chan.webp"
+                    alt="Diego"
+                >
+
+                <h2>Diego</h2>
+
+                <p id="depoimentoDiego"></p>
+
+            </div>
+
+
+            <!-- LÚCIA -->
+
+            <div class="depoimento">
+
+                <img
+                    src="midia/Lucia.webp"
+                    alt="Lúcia"
+                >
+
+                <h2>Lúcia</h2>
+
+                <p id="depoimentoLucia"></p>
+
+            </div>
+
+        </div>
+        <!-------------DEDUÇÃO------->
+        <div class="painel-deducao">
+            <h3>🔎 Quadro de dedução</h3>
+
+            <p>Compare as evidências e registros sua principal hipóteses. Sua escolha não será revelada até você fazer a acusação.
+            </p>
+
+            <label for="hipoteseSuspeito">
+                Quem você considera suspeito?
+            </label>
+
+            <select id="hipoteseSuspeito">
+                <option value="">Selecione um suspeito</option>
+                <option value="Anna">Anna</option>
+                <option value="Diego">Diego</option>
+                <option value="Lúcia">Lúcia</option>
+            </select>
+
+            <label for="anotacoesDeducao">
+                Anotações da investigação
+            </label>
+
+            <textarea 
+            id="anotacoesDeducao"
+            placeholder="Ex.: O horário do cartão não combina com o depoimento..."
+           rows="4"
+         ></textarea>
+
+         <button id="btnSalvarDeducao" type="button">
+            Registrar hipótese
+         </button>
+
+         <p id="mensagemDeducao" aria-live="polite"></p>
+        </div>
+
+
+        <div class="botoes-investigacao">
+
+            <button
+                id="btnVoltarInvestigacao"
+                class="btn-secundario"
+            >
+                ← Voltar à investigação
+            </button>
+
+            <button id="btnAcusar" class="btn-principal">
+                ⚖️ Fazer acusação
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DE ACUSAÇÃO
+    ========================== -->
+
+    <main class="tela tela-acusacao" id="telaAcusacao">
+
+        <h1>QUEM É O CULPADO?</h1>
+
+        <p class="subtitulo">
+            Analise todas as pistas e escolha um suspeito.
+        </p>
+
+
+        <div class="opcoes-acusacao">
+
+
+            <!-- ANNA -->
+
+            <button
+                class="btn-acusar"
+                data-suspeito="Anna"
+            >
+
+                <img
+                    src="midia/Anna.webp"
+                    alt="Anna"
+                >
+
+                <span>Anna</span>
+
+            </button>
+
+
+            <!-- DIEGO -->
+
+            <button
+                class="btn-acusar"
+                data-suspeito="Diego"
+            >
+
+                <img
+                    src="midia/Diego Chan.webp"
+                    alt="Diego"
+                >
+
+                <span>Diego</span>
+
+            </button>
+
+
+            <!-- LÚCIA -->
+
+            <button
+                class="btn-acusar"
+                data-suspeito="Lúcia"
+            >
+
+                <img
+                    src="midia/Lucia.webp"
+                    alt="Lúcia"
+                >
+
+                <span>Lúcia</span>
+
+            </button>
+
+
+        </div>
+
+
+        <button
+            id="btnVoltarDepoimentos"
+            class="btn-secundario"
+        >
+            ← Voltar aos depoimentos
+        </button>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DE RESULTADO
+    ========================== -->
+
+    <main class="tela tela-resultado" id="telaResultado">
+
+        <div class="resultado">
+
+            <span id="iconeResultado" class="icone-resultado">
+                🔎
+            </span>
+
+            <h1 id="resultadoTitulo">
+                RESULTADO FINAL
+            </h1>
+
+            <P id="pontuacaoFinal" class="pontuacao-final">
+                0 pontos
+            </P>
+
+            <p id="resultadoTexto">
+                Resultado da investigação.
+            </p>
+
+            <p id="culpadoRevelado"></p>
+
+            <p id="classificacaoFinal"></p>
+
+            <div id="rankingFinal" class="ranking-final"></div>
+
+            <button
+                id="btnJogarNovamente"
+                class="btn-principal"
+            >
+                🔄 Jogar novamente
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
